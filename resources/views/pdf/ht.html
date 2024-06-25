@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuratKeluar</title>
+</head>
+
+<body>
+
+    <table  align="center" width="500" >
+        <tr>
+            <td> <img src="{{ public_path('images/logo.png') }}" alt="Logo" height="70"></td>
+            <td>
+                <center>
+                    <font size="5">INVESTIGASIMABES</font><br>
+                    <font size="4">PT. Rudesta Cakra Komunika </font><br>
+                    <font size="2">Digital Media | Cyber Adv | Sosial Control | Tabloids</font>
+                    <font size="2">Jl. Pisangan Lama 3 No. 27 Pulo Gadung, Jakarta Timur DKI
+                        Jakarta (+62 812-7681-7286)
+                    </font>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr>
+            </td>
+        </tr>
+    </table>
+    <table  align="center" width="500">
+        <tr>
+            <td>No. Surat</td> <!-- Setengah dari lebar tabel -->
+            <td> : {{ $SuratKeluar->nomor_surat }}</td>
+            <td align="right"> {{ $SuratKeluar->tanggal_surat}}</td> <!-- Setengah dari lebar tabel, dengan penataan teks ke kanan -->
+        </tr>
+        <tr>
+            <td >Perihal</td> <!-- Setengah dari lebar tabel -->
+            <td > : {{ $SuratKeluar->perihal }}</td> <!-- Setengah dari lebar tabel -->
+        </tr>
+    </table>
+    <br>
+
+    <table  align="center" width="500" >
+        <tr>
+            <td>Kepada Yth.</td> 
+        </tr>
+        <tr>
+            <td> Bapak/Ibu {{ $SuratKeluar->tujuan}}</td>
+        </tr>
+    </table>
+    <br>
+    <table  align="center" width="500" >
+        <tr>
+            <td colspan="2" style="text-align: justify;">Dengan hormat,
+                <br>Berdasarkan Surat konfirmasi pengiriman Nomor : 15/EPN/III/2019 tanggal 5 Maret 2019yang menerangkan bahwa barang pesanan kami telah dikirim pada tanggal 4 Maret 2019,tetapi kami belum menerima barang tersebut hingga sekarang.
+                <br>
+                Apabila barang pesanan kami belum juga sampai pada minggu ini maka kami akan
+                embatalkan pesanan tersebut. Dan uang muka yang telah kami bayar dikembalikan sebesar 100%.
+                Kami meminta uang tersebut dikirimkan melalui Bank BNI.
+                <br>Atas perhatian dan kerjasamanya, kami sampaikan terima kasih
+            </td>
+        </tr>
+
+    </table>
+
+    <br>
+    <table align="left" style="margin-left: 120px;">
+        <tr>
+            <td>
+                <center>{{ $SuratKeluar->tanggal_surat}}</center>
+                <center>Pimpinan Redaksi</center>
+            </td>
+
+        </tr>
+        <tr>
+            <td height="70"></td>
+        </tr>
+        <tr>
+            <td>
+                <center>Rudi Andesta</center>
+            </td>
+        </tr>
+    </table>
+    <table align="right" style="margin-right: 120px;">
+        <tr>
+            <td>
+                <center>Disetujui,</center>
+                <center>Sekretaris</center>
+            </td>
+        </tr>
+        <tr>
+            <td height="70"></td>
+        </tr>
+        <tr>
+            <td>
+                <center>Putra Ilham</center>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

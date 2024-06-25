@@ -1,0 +1,110 @@
+@extends('layouts.app')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+@section('content')
+<div class="wrapper">
+    <!-- sidebar -->
+    <div class="sidebar" data-color="red">
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a href="{{ route('admin.home') }}">
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('admin.buatsurat') }}">
+                        <p>Buat Surat</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="nav-link " data-bs-toggle="collapse" href="#transaksi-collapse" aria-expanded="true">
+                        <span class="arrow">Data Surat</span>
+                    </a>
+                    <ul class="nav collapse ms-3 flex-column" id="transaksi-collapse" data-bs-parent="#menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.transaksiSM') }}" aria-current="page">Surat Masuk</a>
+                        </li>
+                        <li class="active">
+                            <a class="nav-link" href="{{ route('admin.transaksiSK') }}" aria-current="page">Surat Keluar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a class="nav-link " data-bs-toggle="collapse" href="#buku-collapse" aria-expanded="true">
+                        <span class="arrow">Buku Agenda</span>
+                    </a>
+                    <ul class="nav collapse ms-3 flex-column" id="buku-collapse" data-bs-parent="#menu">
+                        <li class="">
+                            <a class="nav-link" href="{{ route('admin.bukuSM')}}" aria-current="page">Surat Masuk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.bukuSK')}}" aria-current="page">Surat Keluar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href={{ route('pengguna')}}>
+                        <p>Data Pengguna</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main-panel">
+        <div class="container" style="padding-left: 30px; padding-right: 30px;">
+            <h2><b>Edit Surat Keluar</b></h2>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('admin.updateSK', $suratKeluar->id) }}" method="POST" enctype="multipart/form-data" style="padding-left: 10px; padding-right: 10px;">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="pengirim" class="form-label">Pengirim</label>
+                                    <input type="text" name="pengirim" class="form-control" id="pengirim" value="{{ $suratKeluar->pengirim }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tujuan" class="form-label">Tujuan</label>
+                                    <input type="text" name="tujuan" class="form-control" id="tujuan" value="{{ $suratKeluar->tujuan }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="perihal" class="form-label">Perihal</label>
+                                    <input type="text" name="perihal" class="form-control" id="perihal" value="{{ $suratKeluar->perihal }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="file" class="form-label">File</label>
+                                    <input type="file" name="file" class="form-control" id="file">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="noSurat" class="form-label">No Surat</label>
+                                    <input type="text" name="noSurat" class="form-control" id="noSurat" value="{{ $suratKeluar->nomor_surat }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tanggalSurat" class="form-label">Tanggal Surat</label>
+                                    <input type="date" name="tanggalSurat" class="form-control" id="tanggalSurat" value="{{ $suratKeluar->tanggal_surat }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="keterangan" class="form-label">Keterangan</label>
+                                    <textarea class="form-control" name="keterangan" id="keterangan" rows="4">{{ $suratKeluar->keterangan }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
