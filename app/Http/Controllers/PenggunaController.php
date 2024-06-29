@@ -30,7 +30,7 @@ class PenggunaController extends BaseController
 
     public function tambahPengguna()
     {
-        return view('tambahPengguna');
+        return view('admin.tambahPengguna');
     }
 
     public function store(Request $request)

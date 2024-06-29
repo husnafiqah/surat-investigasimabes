@@ -46,7 +46,7 @@ class HomeController extends Controller
         $jumlahSuratKeluar = SuratKeluar::count();
         $jumlahPengguna = User::count();
 
-        return view('admin.home', compact('jumlahSuratMasuk', 'jumlahSuratKeluar', 'jumlahPengguna'));
+        return view('admin.adminHome', compact('jumlahSuratMasuk', 'jumlahSuratKeluar', 'jumlahPengguna'));
     }
 
     /**
@@ -62,7 +62,7 @@ class HomeController extends Controller
         // Mengambil data surat masuk yang statusnya "Menunggu"
         $menungguCount = SuratMasuk::where('status', 'menunggu')->count();
 
-        return view('kepala.home', compact('terdisposisiCount', 'menungguCount'));
+        return view('kepala.kepalaHome', compact('terdisposisiCount', 'menungguCount'));
     }
     
 }

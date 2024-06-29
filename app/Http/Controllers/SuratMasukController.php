@@ -156,7 +156,7 @@ class SuratMasukController extends BaseController
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
 
-        return view('admin.disposisi.create', compact('suratMasuk'));
+        return view('admin.tambahDisposisi', compact('suratMasuk'));
     }
 
     public function admin_storeDisposisi(Request $request, $id)
@@ -413,7 +413,7 @@ class SuratMasukController extends BaseController
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
 
-        return view('kepala.disposisi.create', compact('suratMasuk'));
+        return view('kepala.tambahDisposisi', compact('suratMasuk'));
     }
 
     public function kepala_storeDisposisi(Request $request, $id)

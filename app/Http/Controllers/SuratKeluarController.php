@@ -189,7 +189,7 @@ class SuratKeluarController extends BaseController
     public function kepaladetailSK($id)
     {
         $suratKeluar = SuratKeluar::findOrFail($id);
-        return view('kepala.detailSK', compact('suratKeluar'));
+        return view('kepala\detailSK', compact('suratKeluar'));
     }
 
 
@@ -203,7 +203,7 @@ class SuratKeluarController extends BaseController
             })
             ->paginate(10);
 
-        return view('kepala.bukuSK', compact('suratKeluar'));
+        return view('kepala\bukuSK', compact('suratKeluar'));
     }
 
     public function generateSuratKeluarPDF($id)
