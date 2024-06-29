@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('perihal');
             $table->string('keterangan')->nullable();
             $table->string('status')->default('menunggu');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
