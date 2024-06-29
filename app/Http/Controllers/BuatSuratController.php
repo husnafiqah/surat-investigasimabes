@@ -15,7 +15,7 @@ class BuatSuratController extends BaseController
 
     public function adminBuatsurat()
     {
-        return view('admin\buatsurat');
+        return view('admin.buatsurat');
     }
     public function adminStore(Request $request)
     {
@@ -72,7 +72,7 @@ class BuatSuratController extends BaseController
 
     public function userBuatsurat()
     {
-        return view('user\buatsurat');
+        return view('user.buatsurat');
     }
 
     public function userStore(Request $request)

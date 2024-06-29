@@ -18,7 +18,7 @@ class SuratKeluarController extends BaseController
     public function admintransaksiSK()
     {
         $suratKeluar = SuratKeluar::paginate(10);
-        return view('admin\transaksiSK', compact('suratKeluar'));
+        return view('admin.transaksiSK', compact('suratKeluar'));
     }
     public function adminbukuSK(Request $request)
     {
@@ -30,16 +30,16 @@ class SuratKeluarController extends BaseController
             })
             ->paginate(10);
 
-        return view('admin\bukuSK', compact('suratKeluar'));
+        return view('admin.bukuSK', compact('suratKeluar'));
     }
     public function admindetailSK($id)
     {
         $suratKeluar = SuratKeluar::findOrFail($id);
-        return view('admin\detailSK', compact('suratKeluar'));
+        return view('admin.detailSK', compact('suratKeluar'));
     }
     public function admintambahSK()
     {
-        return view('admin\tambahSK');
+        return view('admin.tambahSK');
     }
 
     public function adminStore(Request $request)
@@ -159,13 +159,13 @@ class SuratKeluarController extends BaseController
             })
             ->paginate(10);
 
-        return view('user\bukuSK', compact('suratKeluar'));
+        return view('user.bukuSK', compact('suratKeluar'));
         
     }
     public function userdetailSK($id)
     {
         $suratKeluar = SuratKeluar::findOrFail($id);
-        return view('user\detailSK', compact('suratKeluar'));
+        return view('user.detailSK', compact('suratKeluar'));
     }
    
 
@@ -189,7 +189,7 @@ class SuratKeluarController extends BaseController
     public function kepaladetailSK($id)
     {
         $suratKeluar = SuratKeluar::findOrFail($id);
-        return view('kepala\detailSK', compact('suratKeluar'));
+        return view('kepala.detailSK', compact('suratKeluar'));
     }
 
 
@@ -203,7 +203,7 @@ class SuratKeluarController extends BaseController
             })
             ->paginate(10);
 
-        return view('kepala\bukuSK', compact('suratKeluar'));
+        return view('kepala.bukuSK', compact('suratKeluar'));
     }
 
     public function generateSuratKeluarPDF($id)

@@ -49,7 +49,7 @@ class SuratMasukController extends BaseController
     }
     public function admintambahSM()
     {
-        return view('admin\tambahSM');
+        return view('admin.tambahSM');
     }
 
     public function adminStore(Request $request)
@@ -156,7 +156,7 @@ class SuratMasukController extends BaseController
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
 
-        return view('admin\tambahDisposisi', compact('suratMasuk'));
+        return view('admin.disposisi.create', compact('suratMasuk'));
     }
 
     public function admin_storeDisposisi(Request $request, $id)
@@ -254,16 +254,16 @@ class SuratMasukController extends BaseController
             })
             ->paginate(10);
 
-        return view('user\bukuSM', compact('suratMasuks'));
+        return view('user.bukuSM', compact('suratMasuks'));
     }
     public function userdetailSM($id)
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
-        return view('user\detailSM', compact('suratMasuk'));
+        return view('user.detailSM', compact('suratMasuk'));
     }
     public function usertambahSM()
     {
-        return view('user\tambahSM');
+        return view('user.tambahSM');
     }
 
     public function userStore(Request $request)
@@ -385,7 +385,7 @@ class SuratMasukController extends BaseController
     public function kepaladetailSM($id)
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
-        return view('kepala\detailSM', compact('suratMasuk'));
+        return view('kepala.detailSM', compact('suratMasuk'));
     }
     public function kepalabukuSM(Request $request)
     {
@@ -397,7 +397,7 @@ class SuratMasukController extends BaseController
             })
             ->paginate(10);
 
-        return view('kepala\bukuSM', compact('suratMasuks'));
+        return view('kepala.bukuSM', compact('suratMasuks'));
     }
 
     public function kepala_disposisi($id)
@@ -413,7 +413,7 @@ class SuratMasukController extends BaseController
     {
         $suratMasuk = SuratMasuk::findOrFail($id);
 
-        return view('kepala\tambahDisposisi', compact('suratMasuk'));
+        return view('kepala.disposisi.create', compact('suratMasuk'));
     }
 
     public function kepala_storeDisposisi(Request $request, $id)
